@@ -28,7 +28,7 @@
 - Refactor whitelist. Referrals should be added separately from whitelist. [\#57](https://github.com/JincorTech/ico/issues/57)
 - Referral bonus is counted towards reaching softcap/hardcap even if nobody receives it [\#53](https://github.com/JincorTech/ico/issues/53)
 - Owners can prevent withdrawals by halting + Several others [\#52](https://github.com/JincorTech/ico/issues/52)
-- Modifier canTransfer\(\) in JincorToken.sol [\#51](https://github.com/JincorTech/ico/issues/51)
+- Modifier canTransfer\(\) in EXON.sol [\#51](https://github.com/JincorTech/ico/issues/51)
 - Constant functions in InvestorWhiteList.sol  [\#50](https://github.com/JincorTech/ico/issues/50)
 - Multiple issues in refund function [\#46](https://github.com/JincorTech/ico/issues/46)
 - Withdraw tokens, deposited on contract address [\#42](https://github.com/JincorTech/ico/issues/42)
@@ -62,16 +62,16 @@
 
 **Closed issues:**
 
-- Make JincorToken burnable to burn not sold value. [\#7](https://github.com/JincorTech/ico/issues/7)
+- Make EXON burnable to burn not sold value. [\#7](https://github.com/JincorTech/ico/issues/7)
 - Make pre sale contract Haltable. Add tests. [\#5](https://github.com/JincorTech/ico/issues/5)
 
 **Merged pull requests:**
 
-- Closes \#7. Make JincorToken burnable. [\#8](https://github.com/JincorTech/ico/pull/8) ([artemii235](https://github.com/artemii235))
+- Closes \#7. Make EXON burnable. [\#8](https://github.com/JincorTech/ico/pull/8) ([artemii235](https://github.com/artemii235))
 - Closes \#5. Make pre sale contract Haltable. [\#6](https://github.com/JincorTech/ico/pull/6) ([artemii235](https://github.com/artemii235))
 - Add tests for pre sale contract. [\#4](https://github.com/JincorTech/ico/pull/4) ([artemii235](https://github.com/artemii235))
 - Feature/team multi sig [\#3](https://github.com/JincorTech/ico/pull/3) ([hlogeon](https://github.com/hlogeon))
-- Closes \#1. Add tests for JincorToken. Fix min contribution for presale. [\#2](https://github.com/JincorTech/ico/pull/2) ([artemii235](https://github.com/artemii235))
+- Closes \#1. Add tests for EXON. Fix min contribution for presale. [\#2](https://github.com/JincorTech/ico/pull/2) ([artemii235](https://github.com/artemii235))
 
 
 

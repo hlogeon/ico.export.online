@@ -4,13 +4,13 @@ import "./Burnable.sol";
 import "zeppelin-solidity/contracts/ownership/Ownable.sol";
 
 /**
- * @title JincorToken
+ * @title EXON
  *
  * @dev Burnable Ownable ERC20 token
  */
-contract JincorToken is Burnable, Ownable {
+contract EXON is Burnable, Ownable {
 
-  string public constant name = "Export.online Token";
+  string public constant name = "EXON";
   string public constant symbol = "EXON";
   uint8 public constant decimals = 18;
   uint public constant INITIAL_SUPPLY = 35000000 * 1 ether;
@@ -49,7 +49,7 @@ contract JincorToken is Burnable, Ownable {
   /**
    * @dev Constructor that gives msg.sender all of existing tokens.
    */
-  function JincorToken() {
+  function EXON() {
     totalSupply_ = INITIAL_SUPPLY;
     balances[msg.sender] = INITIAL_SUPPLY;
   }

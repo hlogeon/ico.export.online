@@ -3,16 +3,16 @@ pragma solidity ^0.4.11;
 import "./Haltable.sol";
 import "zeppelin-solidity/contracts/math/SafeMath.sol";
 import "zeppelin-solidity/contracts/ownership/Ownable.sol";
-import "./JincorToken.sol";
+import "./EXON.sol";
 import "./InvestorWhiteList.sol";
 import "./abstract/PriceReceiver.sol";
 
-contract JincorTokenICO is Haltable, PriceReceiver {
+contract ExonICO is Haltable, PriceReceiver {
   using SafeMath for uint;
 
   string public constant name = "Export.online Token ICO";
 
-  JincorToken public token;
+  EXON public token;
 
   address public beneficiary;
 
@@ -86,7 +86,7 @@ contract JincorTokenICO is Haltable, PriceReceiver {
     _;
   }
 
-  function JincorTokenICO(
+  function ExonICO(
     uint _hardCapJCR,
     uint _softCapJCR,
     address _token,
@@ -101,7 +101,7 @@ contract JincorTokenICO is Haltable, PriceReceiver {
     hardCap = _hardCapJCR.mul(1 ether);
     softCap = _softCapJCR.mul(1 ether);
 
-    token = JincorToken(_token);
+    token = EXON(_token);
     beneficiary = _beneficiary;
     investorWhiteList = InvestorWhiteList(_investorWhiteList);
 

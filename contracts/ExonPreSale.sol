@@ -4,15 +4,15 @@ pragma solidity ^0.4.11;
 import "./Haltable.sol";
 import "zeppelin-solidity/contracts/math/SafeMath.sol";
 import "zeppelin-solidity/contracts/ownership/Ownable.sol";
-import "./JincorToken.sol";
+import "./EXON.sol";
 
 
-contract JincorTokenPreSale is Haltable {
+contract ExonPreSale is Haltable {
   using SafeMath for uint;
 
   string public constant name = "Export.online Token PreSale";
 
-  JincorToken public token;
+  EXON public token;
 
   address public beneficiary;
 
@@ -58,7 +58,7 @@ contract JincorTokenPreSale is Haltable {
     _;
   }
 
-  function JincorTokenPreSale(
+  function ExonPreSale(
     uint _hardCapUSD,
     uint _softCapUSD,
     address _token,
@@ -75,7 +75,7 @@ contract JincorTokenPreSale is Haltable {
     price = _totalTokens.mul(1 ether).div(hardCap);
 
     purchaseLimit = _purchaseLimitUSD.mul(1 ether).div(_priceETH).mul(price);
-    token = JincorToken(_token);
+    token = EXON(_token);
     beneficiary = _beneficiary;
 
     startBlock = _startBlock;

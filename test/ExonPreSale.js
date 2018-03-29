@@ -1,5 +1,5 @@
-const JincorToken = artifacts.require("JincorToken");
-const JincorTokenPreSale = artifacts.require("JincorTokenPreSale");
+const EXON = artifacts.require("EXON");
+const ExonPreSale = artifacts.require("ExonPreSale");
 
 const assertJump = function(error) {
   assert.isAbove(error.message.search('VM Exception while processing transaction: revert'), -1, 'Invalid opcode error must be returned');
@@ -26,10 +26,10 @@ contract('JincorTokenPresale', function (accounts) {
     this.startBlock = web3.eth.blockNumber;
     this.endBlock = web3.eth.blockNumber + 15;
 
-    this.token = await JincorToken.new();
+    this.token = await EXON.new();
     const totalTokens = 2800; //NOT in wei, converted by contract
 
-    this.crowdsale = await JincorTokenPreSale.new(hardCap, softCap, this.token.address, beneficiary, totalTokens, ethUsdPrice, limit, this.startBlock, this.endBlock);
+    this.crowdsale = await ExonPreSale.new(hardCap, softCap, this.token.address, beneficiary, totalTokens, ethUsdPrice, limit, this.startBlock, this.endBlock);
     this.token.setTransferAgent(this.token.address, true);
     this.token.setTransferAgent(this.crowdsale.address, true);
     this.token.setTransferAgent(accounts[0], true);

@@ -10,8 +10,8 @@ import "zeppelin-solidity/contracts/ownership/Ownable.sol";
  */
 contract JincorToken is Burnable, Ownable {
 
-  string public constant name = "Jincor Token";
-  string public constant symbol = "JCR";
+  string public constant name = "Export.online Token";
+  string public constant symbol = "EXON";
   uint8 public constant decimals = 18;
   uint public constant INITIAL_SUPPLY = 35000000 * 1 ether;
 

@@ -10,7 +10,7 @@ import "./JincorToken.sol";
 contract JincorTokenPreSale is Haltable {
   using SafeMath for uint;
 
-  string public constant name = "Jincor Token PreSale";
+  string public constant name = "Export.online Token PreSale";
 
   JincorToken public token;
 

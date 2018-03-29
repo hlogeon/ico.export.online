@@ -4,7 +4,7 @@ const assertJump = function(error) {
 };
 
 contract('JincorToken', function(accounts) {
-  it("should put 35000000 JCR to supply and in the first account", async function () {
+  it("should put 35000000 EXON to supply and in the first account", async function () {
     const instance = await JincorToken.new();
     const balance = await instance.balanceOf(accounts[0]);
     const supply = await instance.totalSupply();

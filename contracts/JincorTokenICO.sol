@@ -10,7 +10,7 @@ import "./abstract/PriceReceiver.sol";
 contract JincorTokenICO is Haltable, PriceReceiver {
   using SafeMath for uint;
 
-  string public constant name = "Jincor Token ICO";
+  string public constant name = "Export.online Token ICO";
 
   JincorToken public token;
 

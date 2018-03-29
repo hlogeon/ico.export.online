@@ -10,8 +10,8 @@ module.exports = function(deployer) {
   deployer.link(SafeMath, JincorToken);
   deployer.link(SafeMath, JincorTokenICO);
   deployer.deploy(JincorToken).then(async function() {
-    const hardCap = 26600000; //in JCR
-    const softCap = 2500000; //in JCR
+    const hardCap = 26600000; //in EXON
+    const softCap = 2500000; //in EXON
     const token = JincorToken.address;
     const beneficiary = web3.eth.accounts[0];
     const startBlock = web3.eth.blockNumber;

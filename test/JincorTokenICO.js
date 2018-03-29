@@ -6,8 +6,8 @@ const assertJump = function(error) {
   assert.isAbove(error.message.search('VM Exception while processing transaction: revert'), -1, 'Invalid opcode error must be returned');
 };
 
-const hardCap = 26600000; //in JCR
-const softCap = 2500000; //in JCR
+const hardCap = 26600000; //in EXON
+const softCap = 2500000; //in EXON
 const beneficiary = web3.eth.accounts[9];
 const ethUsdPrice = 20000; //in cents
 const btcUsdPrice = 400000; //in cents

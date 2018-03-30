@@ -1,16 +1,17 @@
 const EXON = artifacts.require("EXON");
+const BN = require('bignumber.js');
 const assertJump = function(error) {
   assert.isAbove(error.message.search('VM Exception while processing transaction: revert'), -1, 'Invalid opcode error must be returned');
 };
 
 contract('EXON', function(accounts) {
-  it("should put 35000000 EXON to supply and in the first account", async function () {
+  it("should put 36547525 EXON to supply and in the first account", async function () {
     const instance = await EXON.new();
     const balance = await instance.balanceOf(accounts[0]);
     const supply = await instance.totalSupply();
 
-    assert.equal(balance.valueOf(), 35000000 * 10 ** 18, "First account (owner) balance must be 35000000");
-    assert.equal(supply.valueOf(), 35000000 * 10 ** 18, "Supply must be 35000000");
+    assert.equal(balance.valueOf(), 36547525 * 10 ** 18, "First account (owner) balance must be 36547525");
+    assert.equal(supply.valueOf(), 36547525 * 10 ** 18, "Supply must be 36547525");
   });
 
   it("should not allow to set releaseAgent by not owner", async function () {
@@ -125,7 +126,7 @@ contract('EXON', function(accounts) {
     await token.transfer(accounts[1], 100 * 10 ** 18);
 
     const balance0 = await token.balanceOf(accounts[0]);
-    assert.equal(balance0.valueOf(), 34999900 * 10 ** 18);
+    assert.equal(balance0.valueOf(), (36547525 - 100) * 10 ** 18);
 
     const balance1 = await token.balanceOf(accounts[1]);
     assert.equal(balance1.valueOf(), 100 * 10 ** 18);
@@ -139,7 +140,8 @@ contract('EXON', function(accounts) {
     await token.transfer(accounts[1], 0.0001 * 10 ** 18);
 
     const balance0 = await token.balanceOf(accounts[0]);
-    assert.equal(balance0.valueOf(), 34999999.9999 * 10 ** 18);
+    var supply = new BN('36547525');
+    assert.equal(balance0.valueOf(),  supply.minus(0.0001).multipliedBy(10 ** 18).toString());
 
     const balance1 = await token.balanceOf(accounts[1]);
     assert.equal(balance1.valueOf(), 0.0001 * 10 ** 18);
@@ -153,7 +155,7 @@ contract('EXON', function(accounts) {
     await token.transfer(accounts[1], 100 * 10 ** 18);
 
     const balance0 = await token.balanceOf(accounts[0]);
-    assert.equal(balance0.valueOf(), 34999900 * 10 ** 18);
+    assert.equal(balance0.valueOf(), (36547525 - 100) * 10 ** 18);
 
     const balance1 = await token.balanceOf(accounts[1]);
     assert.equal(balance1.valueOf(), 100 * 10 ** 18);
@@ -207,7 +209,7 @@ contract('EXON', function(accounts) {
     await token.transferFrom(accounts[0], accounts[2], 100 * 10 ** 18, {from: accounts[1]});
 
     const balance0 = await token.balanceOf(accounts[0]);
-    assert.equal(balance0.valueOf(), 34999900 * 10 ** 18);
+    assert.equal(balance0.valueOf(), (36547525 - 100) * 10 ** 18);
 
     const balance1 = await token.balanceOf(accounts[2]);
     assert.equal(balance1.valueOf(), 100 * 10 ** 18);
@@ -224,7 +226,7 @@ contract('EXON', function(accounts) {
     await token.transferFrom(accounts[0], accounts[2], 100 * 10 ** 18, {from: accounts[1]});
 
     const balance0 = await token.balanceOf(accounts[0]);
-    assert.equal(balance0.valueOf(), 34999900 * 10 ** 18);
+    assert.equal(balance0.valueOf(), (36547525 - 100) * 10 ** 18);
 
     const balance1 = await token.balanceOf(accounts[2]);
     assert.equal(balance1.valueOf(), 100 * 10 ** 18);
@@ -238,10 +240,10 @@ contract('EXON', function(accounts) {
     await token.burn(1000000 * 10 ** 18);
 
     const balance = await token.balanceOf(accounts[0]).valueOf();
-    assert.equal(balance, 34000000 * 10 ** 18);
+    assert.equal(balance, 35547525 * 10 ** 18);
 
     const supply = await token.totalSupply().valueOf();
-    assert.equal(supply, 34000000 * 10 ** 18);
+    assert.equal(supply, 35547525 * 10 ** 18);
   });
 
   it("should not allow to burn by not owner", async function() {
@@ -261,7 +263,7 @@ contract('EXON', function(accounts) {
     let token = await EXON.new();
 
     try {
-      await token.burn(35000001 * 10 ** 18);
+      await token.burn(37547525 * 10 ** 18);
     } catch (error) {
       return assertJump(error);
     }
@@ -279,7 +281,7 @@ contract('EXON', function(accounts) {
     assert.equal(balance, 500000 * 10 ** 18);
 
     const supply = await token.totalSupply().valueOf();
-    assert.equal(supply, 34500000 * 10 ** 18);
+    assert.equal(supply, (36547525 - 500000) * 10 ** 18);
 
     //should not allow to burn more
     try {

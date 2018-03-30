@@ -13,7 +13,7 @@ contract EXON is Burnable, Ownable {
   string public constant name = "EXON";
   string public constant symbol = "EXON";
   uint8 public constant decimals = 18;
-  uint public constant INITIAL_SUPPLY = 35000000 * 1 ether;
+  uint public constant INITIAL_SUPPLY = 36547525 * 1 ether;
 
   /* The finalizer contract that allows unlift the transfer limits on this token */
   address public releaseAgent;
